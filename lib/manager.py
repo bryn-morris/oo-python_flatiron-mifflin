@@ -6,6 +6,11 @@ class Manager:
     all_departments = []
     new_employee_counter = 5
     age_list = []
+
+    #need to be able to call this AFTER classes are instantiated so can't be
+    # class attribute or it needs to update when we call it such as 
+    # with a getter
+    # average_age = (0 if age_list == [] else sum(age_list)/len(age_list))
     
     def __init__(self, name, department, age):
         self.name = name
@@ -43,5 +48,8 @@ class Manager:
     def get_average_age(cls):
         return sum(cls.age_list)/len(cls.age_list)
 
+
+    # Only returning Property Object instead of Expected value,
+    # having some issue with using property on class method
     # average_age = property(get_average_age)
     employees = property(get_employees)
